@@ -6,13 +6,15 @@ import com.pizzeria.pizzeria.repository.PizzaRepository;
 import com.pizzeria.pizzeria.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class PizzaServiceImpl implements PizzaService {
     private PizzaRepository pizzaRepository;
-//    @Autowired
+    @Autowired
     public PizzaServiceImpl(PizzaRepository pizzaRepository) {
         this.pizzaRepository = pizzaRepository;
     }

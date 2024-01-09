@@ -19,5 +19,6 @@ public class Pizza {
     private String title;
     private String description;
     private double price;
+    @Column(length = 8192)
     private String photoUrl;
 }
