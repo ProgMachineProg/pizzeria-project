@@ -24,6 +24,11 @@ public class PizzaServiceImpl implements PizzaService {
         return pizzas.stream().map((pizza -> mapToPizzaDto(pizza))).collect(Collectors.toList());
     }
 
+    @Override
+    public Pizza savePizza(Pizza pizza) {
+        return pizzaRepository.save(pizza);
+    }
+
     private PizzaDto mapToPizzaDto(Pizza pizza) {
         PizzaDto pizzaDto = PizzaDto.builder()
                 .id(pizza.getId())

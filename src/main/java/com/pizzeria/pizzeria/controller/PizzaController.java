@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -28,10 +30,16 @@ public class PizzaController {
     }
 
     @GetMapping("/pizzas/new")
-    public String createClubForm(Model model) {
+    public String createPizzaForm(Model model) {
         Pizza pizza = new Pizza();
         model.addAttribute("pizza", pizza);
         return "pizzas-create";
+    }
+
+    @PostMapping("/pizzas/new")
+    public String savePizza(@ModelAttribute("club") Pizza pizza) {
+        pizzaService.savePizza(pizza);
+        return "redirect:/pizzas";
     }
 
 
