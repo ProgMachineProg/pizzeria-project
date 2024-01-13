@@ -29,6 +29,29 @@ public class PizzaServiceImpl implements PizzaService {
         return pizzaRepository.save(pizza);
     }
 
+    @Override
+    public PizzaDto findPizzaById(long pizzaId) {
+        Pizza pizza = pizzaRepository.findById(pizzaId).get();
+        return mapToPizzaDto(pizza);
+    }
+
+    @Override
+    public void updatePizza(PizzaDto pizzaDto) {
+        Pizza pizza = mapToPizza(pizzaDto);
+        pizzaRepository.save(pizza);
+    }
+
+    private Pizza mapToPizza(PizzaDto pizza) {
+        Pizza pizzaDto = Pizza.builder()
+                .id(pizza.getId())
+                .title(pizza.getTitle())
+                .photoUrl(pizza.getPhotoUrl())
+                .description(pizza.getDescription())
+                .price(pizza.getPrice())
+                .build();
+        return pizzaDto;
+    }
+
     private PizzaDto mapToPizzaDto(Pizza pizza) {
         PizzaDto pizzaDto = PizzaDto.builder()
                 .id(pizza.getId())

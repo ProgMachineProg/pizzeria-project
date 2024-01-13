@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -41,6 +42,21 @@ public class PizzaController {
         pizzaService.savePizza(pizza);
         return "redirect:/pizzas";
     }
+
+    @GetMapping("/pizzas/{pizzaId}/edit")
+    public String editPizzaForm(@PathVariable("pizzaId") long pizzaId, Model model) {
+        PizzaDto pizza = pizzaService.findPizzaById(pizzaId);
+        model.addAttribute("pizza", pizza);
+        return "pizza-edit";
+    }
+
+    @PostMapping("/pizzas/{pizzaId}/edit")
+    public String updatePizza(@PathVariable("pizzaId") Long pizzaId, @ModelAttribute("pizza") PizzaDto pizza) {
+        pizza.setId(pizzaId);
+        pizzaService.updatePizza(pizza);
+        return "redirect:/pizzas";
+    }
+
 
 
 }

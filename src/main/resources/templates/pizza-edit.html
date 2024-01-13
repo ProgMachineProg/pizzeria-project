@@ -54,7 +54,8 @@
 <!-- Section-->
 <section class="py-5">
     <div class="container">
-        <form role="form" method="post" th:action="@{/pizzas/new}" th:object="${pizza}" class="row g-3">
+        <form role="form" method="post" th:action="@{/pizzas/{pizzaId}/edit(pizzaId=${pizza.id})}" th:object="${pizza}" class="row g-3">
+            <input type="hidden" th:field="*{id}">
             <div class="col-12">
                 <label for="title" class="form-label">Title</label>
                 <input
@@ -85,6 +86,7 @@
                         th:field="*{price}"
                         placeholder="price"
                         step="0.01">
+
             </div>
             <div class="col-12">
                 <label for="photoUrl" class="form-label">PhotoUrl</label>
