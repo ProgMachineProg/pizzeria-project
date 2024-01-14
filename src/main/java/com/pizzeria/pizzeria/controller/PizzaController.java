@@ -57,6 +57,12 @@ public class PizzaController {
         return "redirect:/pizzas";
     }
 
+    @GetMapping("/pizzas/{pizzaId}/delete")
+    public String deletePizza(@PathVariable("pizzaId") Long pizzaId) {
+        pizzaService.delete(pizzaId);
+        return "redirect:/pizzas";
+    }
+
 
 
 }

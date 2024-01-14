@@ -12,4 +12,6 @@ public interface PizzaService {
     PizzaDto findPizzaById(long pizzaId);
 
     void updatePizza(PizzaDto pizza);
+
+    void delete(Long pizzaId);
 }

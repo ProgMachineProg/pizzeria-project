@@ -62,4 +62,9 @@ public class PizzaServiceImpl implements PizzaService {
                 .build();
         return pizzaDto;
     }
+
+    @Override
+    public void delete(Long pizzaId) {
+        pizzaRepository.deleteById(pizzaId);
+    }
 }
