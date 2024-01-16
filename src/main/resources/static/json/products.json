@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "TestPizza1",
+    "price": 200,
+    "image": "https://iq-pizza.eatery.club/storage/iq-pizza/product/icon/36052/conversions/text-optimized.jpg"
+  },
+  {
+    "id": 2,
+    "name": "TestPizza2",
+    "price": 200,
+    "image": "https://iq-pizza.eatery.club/storage/iq-pizza/product/icon/36052/conversions/text-optimized.jpg"
+  },
+  {
+    "id": 3,
+    "name": "TestPizza3",
+    "price": 200,
+    "image": "https://iq-pizza.eatery.club/storage/iq-pizza/product/icon/35651/conversions/text-optimized.jpg"
+  },
+  {
+    "id": 4,
+    "name": "TestPizza4",
+    "price": 200,
+    "image": "https://iq-pizza.eatery.club/storage/iq-pizza/product/icon/35651/conversions/text-optimized.jpg"
+  }
+]

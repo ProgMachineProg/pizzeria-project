@@ -1,8 +1,10 @@
 package com.pizzeria.pizzeria.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pizzeria.pizzeria.dto.PizzaDto;
 import com.pizzeria.pizzeria.models.Pizza;
+import com.pizzeria.pizzeria.repository.PizzaRepository;
 import com.pizzeria.pizzeria.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ import java.util.List;
 @Controller
 public class PizzaController {
     private PizzaService pizzaService;
+    private PizzaRepository pizzaRepository;
+
 
     @Autowired
     public PizzaController(PizzaService pizzaService) {
@@ -61,6 +65,15 @@ public class PizzaController {
     public String deletePizza(@PathVariable("pizzaId") Long pizzaId) {
         pizzaService.delete(pizzaId);
         return "redirect:/pizzas";
+    }
+
+    @GetMapping("/pizzas/json")
+    public String getAllUsersAsJson(Model model) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        List<PizzaDto> pizzas = pizzaService.findAllPizza();
+        String json = mapper.writeValueAsString(pizzas);
+        model.addAttribute("json", json);
+        return "pizzas-json";
     }
 
 

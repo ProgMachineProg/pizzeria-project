@@ -12,6 +12,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/cartTab.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -32,13 +33,13 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <div class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -70,15 +71,46 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="buttons">
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" th:href="@{/pizzas/{pizzaId}/edit(pizzaId=${pizza.id})}">Edit</a></div>
-
+                                <div class="addCart">
+                                    <div class="text-center"><button class="btn btn-outline-dark mt-auto" href="">Order</button></div>
+                                </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <div class="">
+            <div class="cartTab">
+                <h1>Shopping Cart</h1>
+                <div class="listCart">
+                    <div class="item">
+                        <div class="image">
+                            <img src="https://iq-pizza.eatery.club/storage/iq-pizza/product/icon/36052/conversions/text-optimized.jpg" alt="">
+                        </div>
+                        <div class="name">
+                            NAME
+                        </div>
+                        <div class="totalPrice">
+                            $200
+                        </div>
+                        <div class="quantity">
+                            <span class="minus"><</span>
+                            <span>1</span>
+                            <span class="plus">></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button class="close">CLOSE</button>
+                    <button class="checkOut">CHECK OUT</button>
+                </div>
+            </div>
+        </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2024</p></div>
@@ -87,5 +119,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/cartTab.js"></script>
     </body>
 </html>
