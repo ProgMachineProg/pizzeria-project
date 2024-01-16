@@ -67,6 +67,7 @@ public class PizzaController {
         return "redirect:/pizzas";
     }
 
+
     @GetMapping("/pizzas/json")
     public String getAllUsersAsJson(Model model) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
