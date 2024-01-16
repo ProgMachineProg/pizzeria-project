@@ -7,12 +7,10 @@ import com.pizzeria.pizzeria.models.Pizza;
 import com.pizzeria.pizzeria.repository.PizzaRepository;
 import com.pizzeria.pizzeria.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,8 +27,8 @@ public class PizzaController {
 
     @GetMapping("/pizzas")
     public String listPizzas(Model model) {
-        List<PizzaDto> pizzas = pizzaService.findAllPizza();
-        model.addAttribute("pizzas", pizzas);
+//        List<PizzaDto> pizzas = pizzaService.findAllPizza();
+//        model.addAttribute("pizzas", pizzas);
         return "pizzas-list";
     }
 
@@ -68,15 +66,30 @@ public class PizzaController {
     }
 
 
+//    @GetMapping("/pizzas/json")
+//    public String getAllUsersAsJson(Model model) throws Exception {
+//        ObjectMapper mapper = new ObjectMapper();
+//        List<PizzaDto> pizzas = pizzaService.findAllPizza();
+//        String json = mapper.writeValueAsString(pizzas);
+//        model.addAttribute("json", json);
+//        return "pizzas-json";
+//    }
+
     @GetMapping("/pizzas/json")
-    public String getAllUsersAsJson(Model model) throws Exception {
+    public ResponseEntity<String> getAllUsersAsJson(Model model) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         List<PizzaDto> pizzas = pizzaService.findAllPizza();
         String json = mapper.writeValueAsString(pizzas);
-        model.addAttribute("json", json);
-        return "pizzas-json";
+//        model.addAttribute("json", json);
+        return ResponseEntity.ok(json);
     }
 
+//    @RequestMapping(value = "/my-json-file", produces = "json/products.json")
+//    public ResponseEntity<String> getJsonFile() {
+//
+//        String json = "{ \"key\": \"value\" }";
+//        return ResponseEntity.ok(json);
+//    }
 
 
 }
