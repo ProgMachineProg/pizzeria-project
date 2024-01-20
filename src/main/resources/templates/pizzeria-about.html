@@ -25,7 +25,7 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pizzas">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/pizzas/about">About</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -52,52 +52,7 @@
 <!-- Section-->
 <section class="py-5">
     <div class="container">
-        <form role="form" method="post" th:action="@{/pizzas/new}" th:object="${pizza}" class="row g-3">
-            <div class="col-12">
-                <label for="title" class="form-label">Title</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="title"
-                        name="title"
-                        th:field="*{title}"
-                        placeholder="Title">
-            </div>
-            <div class="col-12">
-                <label for="description" class="form-label">Description</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="description"
-                        name="description"
-                        th:field="*{description}"
-                        placeholder="Description">
-            </div>
-            <div class="col-12">
-                <label for="price" class="form-label">Price</label>
-                <input
-                        type="number"
-                        class="form-control"
-                        id="price"
-                        name="price"
-                        th:field="*{price}"
-                        placeholder="price"
-                        step="0.01">
-            </div>
-            <div class="col-12">
-                <label for="photoUrl" class="form-label">PhotoUrl</label>
-                <input
-                        type="text"
-                        class="form-control"
-                        id="photoUrl"
-                        name="photoUrl"
-                        th:field="*{photoUrl}"
-                        placeholder="PhotoUrl">
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
+        Hello, I really love pizza!
     </div>
 </section>
 <!-- Footer-->

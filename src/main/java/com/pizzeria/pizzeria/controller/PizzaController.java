@@ -27,8 +27,6 @@ public class PizzaController {
 
     @GetMapping("/pizzas")
     public String listPizzas(Model model) {
-//        List<PizzaDto> pizzas = pizzaService.findAllPizza();
-//        model.addAttribute("pizzas", pizzas);
         return "pizzas-list";
     }
 
@@ -58,38 +56,21 @@ public class PizzaController {
         pizzaService.updatePizza(pizza);
         return "redirect:/pizzas";
     }
-
     @GetMapping("/pizzas/{pizzaId}/delete")
     public String deletePizza(@PathVariable("pizzaId") Long pizzaId) {
         pizzaService.delete(pizzaId);
         return "redirect:/pizzas";
     }
-
-
-//    @GetMapping("/pizzas/json")
-//    public String getAllUsersAsJson(Model model) throws Exception {
-//        ObjectMapper mapper = new ObjectMapper();
-//        List<PizzaDto> pizzas = pizzaService.findAllPizza();
-//        String json = mapper.writeValueAsString(pizzas);
-//        model.addAttribute("json", json);
-//        return "pizzas-json";
-//    }
-
     @GetMapping("/pizzas/json")
     public ResponseEntity<String> getAllUsersAsJson(Model model) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         List<PizzaDto> pizzas = pizzaService.findAllPizza();
         String json = mapper.writeValueAsString(pizzas);
-//        model.addAttribute("json", json);
         return ResponseEntity.ok(json);
     }
 
-//    @RequestMapping(value = "/my-json-file", produces = "json/products.json")
-//    public ResponseEntity<String> getJsonFile() {
-//
-//        String json = "{ \"key\": \"value\" }";
-//        return ResponseEntity.ok(json);
-//    }
-
-
+    @GetMapping("/pizzas/about")
+    public String aboutPizzeria() {
+        return"pizzeria-about";
+    }
 }
