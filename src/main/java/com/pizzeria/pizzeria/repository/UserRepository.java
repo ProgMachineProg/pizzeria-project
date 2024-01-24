@@ -1,11 +1,12 @@
 package com.pizzeria.pizzeria.repository;
 
-import com.pizzeria.pizzeria.models.Pizza;
+import com.pizzeria.pizzeria.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+
 @Repository
-public interface PizzaRepository extends JpaRepository<Pizza, Long> {
-    Optional<Pizza> findByTitle(String url);
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }

@@ -1,0 +1,4 @@
+jwt:
+  secret: 3h4j4h5gm23b4c6k7vgf3h6vfg
+  lifetime: 30m
+
